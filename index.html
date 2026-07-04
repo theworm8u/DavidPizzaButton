@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pizza Button — No API Key</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="card">
+      <p class="eyebrow">No API Key POC</p>
+      <h1>Find me pizza</h1>
+      <p class="intro">
+        Tap the red button. Your browser will ask for location permission, then this page will find nearby pizza places using OpenStreetMap data.
+      </p>
+
+      <div class="notice">
+        This version does not use Supabase, does not track IPs, and does not require a Google API key.
+        It can find nearby pizza places, but it cannot read Google ratings without a Google Places API key.
+      </div>
+
+      <button id="pizzaButton" class="pizza-button">Find Pizza</button>
+
+      <div id="status" class="status" aria-live="polite">Ready.</div>
+
+      <section id="result" class="result hidden">
+        <h2 id="placeName"></h2>
+        <p id="placeMeta"></p>
+        <p id="placeAddress"></p>
+        <div class="links">
+          <a id="osmLink" href="#" target="_blank" rel="noopener">Open in OpenStreetMap</a>
+          <a id="googleLink" href="#" target="_blank" rel="noopener">Search this area in Google Maps</a>
+        </div>
+      </section>
+
+      <section id="fallback" class="fallback hidden">
+        <h2>No pizza place found in OpenStreetMap</h2>
+        <p>Try the Google Maps search link below. This does not need an API key.</p>
+        <a id="fallbackGoogleLink" href="#" target="_blank" rel="noopener">Search nearby pizza in Google Maps</a>
+      </section>
+
+      <details class="details">
+        <summary>How this works</summary>
+        <p>
+          This app uses your browser’s geolocation and searches OpenStreetMap through the public Overpass API.
+          It ranks results by distance from your location. Google ratings are not available without the Google Places API.
+        </p>
+      </details>
+    </section>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
