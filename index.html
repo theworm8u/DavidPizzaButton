@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pizza Button</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="card">
+      <p class="eyebrow">Pizza Finder</p>
+      <h1>Find me pizza</h1>
+      <p class="intro">
+        Tap the red button. Your browser will ask for location permission, then this page will return a nearby,
+        highly rated pizza restaurant.
+      </p>
+
+      <button id="pizzaButton" class="pizza-button">Find Pizza</button>
+
+      <div id="status" class="status" aria-live="polite">Ready.</div>
+
+      <section id="result" class="result hidden">
+        <h2 id="placeName"></h2>
+        <p id="placeMeta"></p>
+        <p id="placeAddress"></p>
+        <a id="placeLink" href="#" target="_blank" rel="noopener">Open in Google Maps</a>
+      </section>
+
+      <details class="settings">
+        <summary>Settings</summary>
+
+        <label>
+          Google Maps JavaScript API key
+          <input id="googleKey" type="password" placeholder="Paste API key" autocomplete="off" />
+        </label>
+
+        <div class="settings-row">
+          <button id="saveSettings" type="button" class="secondary-button">Save on this device</button>
+          <button id="clearSettings" type="button" class="link-button">Clear</button>
+        </div>
+
+        <p class="small">
+          The key is saved only in this browser using localStorage. For GitHub Pages, restrict your Google key
+          to your GitHub Pages domain.
+        </p>
+      </details>
+    </section>
+  </main>
+
+  <div id="placesServiceHost" aria-hidden="true"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
